@@ -21,8 +21,8 @@ class EchoBot(ClientXMPP):
 
         # If you are working with an OpenFire server, you will
         # need to use a different SSL version:
-        # import ssl
-        # self.ssl_version = ssl.PROTOCOL_SSLv3
+        import ssl
+        self.ssl_version = ssl.PROTOCOL_SSLv3
 
     def session_start(self, event):
         self.send_presence()
@@ -53,6 +53,6 @@ if __name__ == '__main__':
     logging.basicConfig(level=logging.DEBUG,
                         format='%(levelname)-8s %(message)s')
 
-    xmpp = EchoBot('life-alert@googleapis.com', 'AIzaSyB0PnR-khlGJ0T831u_gizxMR8pu40Ikk0')
+    xmpp = EchoBot('life-alert@gcm-googleapis.com', 'AIzaSyB0PnR-khlGJ0T831u_gizxMR8pu40Ikk0')
     xmpp.connect(('gcm-xmpp.googleapis.com', 5235), use_ssl=True)
     xmpp.process(block=True)
